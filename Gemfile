@@ -98,3 +98,14 @@ gem "simplecov", require: false, group: :test
 gem "sidekiq-cron"
 
 gem "pg", group: [:production]
+
+# PDF generation gem
+gem "wicked_pdf"
+# wicked_pdf uses the following binary
+gem "wkhtmltopdf-binary"
+
+# Required by Active Storage to use the AWS S3
+gem "aws-sdk-s3", require: false
+
+# To load the environment variables
+gem "dotenv-rails"
