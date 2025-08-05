@@ -3,7 +3,6 @@
 class Tasks::ReportsController < ApplicationController
   def create
     ReportsJob.perform_async(current_user.id)
-    render_notice(t("in_progress", action: "Report generation"))
   end
 
   def download
