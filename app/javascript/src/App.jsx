@@ -4,6 +4,7 @@ import { Login, Signup } from "components/Authentication";
 import { PrivateRoute } from "components/commons";
 import Dashboard from "components/Dashboard";
 import { CreateTask, EditTask, ShowTask } from "components/Tasks";
+import DownloadReport from "components/Tasks/DownloadReport";
 import { either, isEmpty, isNil } from "ramda";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
@@ -25,6 +26,7 @@ const App = () => {
         <Route exact component={Signup} path="/signup" />
         <Route exact component={Login} path="/login" />
         <Route exact component={Preferences} path="/my/preferences" />
+        <Route exact component={DownloadReport} path="/tasks/report" />;
         <PrivateRoute
           component={Dashboard}
           condition={isLoggedIn}

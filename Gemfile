@@ -98,3 +98,8 @@ gem "simplecov", require: false, group: :test
 gem "sidekiq-cron"
 
 gem "pg", group: [:production]
+
+# PDF generation gem
+gem "wicked_pdf"
+# wicked_pdf uses the following binary
+gem "wkhtmltopdf-binary"
