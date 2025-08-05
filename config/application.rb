@@ -4,6 +4,9 @@ require_relative "boot"
 
 require "rails/all"
 
+require "dotenv"
+Dotenv::Railtie.load
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -32,8 +35,5 @@ module Granite
     end
 
     config.active_job.queue_adapter = :sidekiq
-
-    # Load dotenv file
-    Dotenv::Railtie.load
   end
 end

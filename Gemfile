@@ -104,8 +104,13 @@ gem "wicked_pdf"
 # wicked_pdf uses the following binary
 gem "wkhtmltopdf-binary"
 
-# Required by Active Storage to use the AWS S3
-gem "aws-sdk-s3", require: false
+# # Required by Active Storage to use the AWS S3
+# gem "aws-sdk-s3", require: false
 
 # To load the environment variables
 gem "dotenv-rails"
+
+gem "redis"
+
+# Required by Active Storage to use the GCS
+gem "google-cloud-storage"
