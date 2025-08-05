@@ -4,23 +4,23 @@ source "https://rubygems.org"
 
 ruby "3.3.5"
 
+gem "responders"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.4"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+# Use sqlite3 / pg as the database for Active Record
+gem "pg", group: [:production]
+gem "sqlite3", "~> 1.4", group: [:development, :test]
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
-
-# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails"
-
-# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
-gem "stimulus-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
@@ -32,7 +32,7 @@ gem "jbuilder"
 # gem "kredis"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-gem "bcrypt", "~> 3.1.7"
+# gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
@@ -56,9 +56,6 @@ group :development, :test do
 
   # For auto-generating demo data
   gem "faker"
-
-  # Use sqlite3 as the database for Active Record for development & test
-  gem "sqlite3", "~> 1.4"
 end
 
 group :development do
@@ -73,33 +70,36 @@ group :development do
 
   # For linting ERB files
   gem "erb_lint", require: false, git: "https://github.com/Shopify/erb-lint.git", branch: "main"
-
-  # For opening mails in development env
-  gem "letter_opener"
 end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
-  gem "selenium-webdriver"
+  gem "minitest-bisect"
 end
 
-gem "data_migrate"
-gem "minitest-bisect"
-gem "ostruct"
-gem "prettyprint"
-gem "pundit"
 gem "react-rails", "~> 2.7.1"
-gem "responders"
-gem "sidekiq", "~>7"
+
+gem "bcrypt", "~> 3.1.13"
+gem "data_migrate"
+gem "pundit"
+gem "sidekiq", "~> 7.0"
 gem "simplecov", require: false, group: :test
 
 # For periodic sidekiq jobs
 gem "sidekiq-cron"
 
-gem "pg", group: [:production]
+# For opening mails in development env
+gem "letter_opener", group: :development
 
 # PDF generation gem
 gem "wicked_pdf"
 # wicked_pdf uses the following binary
 gem "wkhtmltopdf-binary"
+
+# To load the environment variables
+gem "dotenv-rails"
+
+# Required by Active Storage to use the GCS
+gem "google-cloud-storage"
+
+gem "redis"

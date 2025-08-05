@@ -16,15 +16,14 @@ class User < ApplicationRecord
     user.has_one :preference, foreign_key: :user_id
   end
 
+  has_one_attached :report
+
   validates :name, presence: true, length: { maximum: MAX_NAME_LENGTH }
   validates :email, presence: true,
     uniqueness: { case_sensitive: false },
     length: { maximum: MAX_EMAIL_LENGTH },
     format: { with: VALID_EMAIL_REGEX }
-  validates :password,
-    presence: true,
-    confirmation: true,
-    length: { minimum: MIN_PASSWORD_LENGTH }
+  validates :password, length: { minimum: MIN_PASSWORD_LENGTH }, if: -> { password.present? }
   validates :password_confirmation, presence: true, on: :create
 
   before_save :to_lowercase
