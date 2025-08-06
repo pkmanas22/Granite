@@ -18,5 +18,4 @@ export {
   PrivateRoute,
   Tooltip,
   Toastr,
-  ProgressBar,
 };
