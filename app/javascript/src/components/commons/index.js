@@ -14,6 +14,7 @@ export {
   Input,
   PageLoader,
   PageTitle,
+  ProgressBar,
   PrivateRoute,
   Tooltip,
   Toastr,

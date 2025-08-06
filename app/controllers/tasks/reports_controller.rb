@@ -6,11 +6,11 @@ class Tasks::ReportsController < ApplicationController
   end
 
   def download
-    unless current_user.report.attached?
+    unless @current_user.report.attached?
       render_error(t("not_found", entity: "report"), :not_found) and return
     end
 
-    send_data current_user.report.download, filename: pdf_file_name, content_type: "application/pdf"
+    send_data @current_user.report.download, filename: pdf_file_name, content_type: "application/pdf"
   end
 
   private

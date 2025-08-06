@@ -34,8 +34,8 @@ const tasksApi = {
   show,
   update,
   destroy,
-  generatePdf,
   download,
+  generatePdf,
 };
 
 export default tasksApi;
