@@ -24,6 +24,7 @@ class ReportsJob
       io: StringIO.new(pdf_report), filename: "report.pdf",
       content_type: "application/pdf")
     current_user.save
+
     ActionCable.server.broadcast(user_id, { message: I18n.t("report.attach"), progress: 100 })
   end
 end

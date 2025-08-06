@@ -3,14 +3,13 @@ import React from "react";
 import { Login, Signup } from "components/Authentication";
 import { PrivateRoute } from "components/commons";
 import Dashboard from "components/Dashboard";
+import Preferences from "components/Preferences";
 import { CreateTask, EditTask, ShowTask } from "components/Tasks";
 import DownloadReport from "components/Tasks/DownloadReport";
 import { either, isEmpty, isNil } from "ramda";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { getFromLocalStorage } from "utils/storage";
-
-import Preferences from "./components/Preferences";
 
 const App = () => {
   const authToken = getFromLocalStorage("authToken");
