@@ -1,6 +1,11 @@
 {
   "name": "app",
   "private": true,
+  "engines": {
+    "node": "22.13",
+    "npm": "7.x",
+    "yarn": "1.22.x"
+  },
   "devDependencies": {
     "@babel/eslint-parser": "7.17.0",
     "esbuild": "^0.25.6",
